@@ -1,4 +1,4 @@
-# generic-jpa-converter-encrypt-decrypt
+# Spring Boot 2 generic JPA converter to encrypt and decrypt an entity attribute
 Generic JPA converter for encryption decryption. Uses Spring Boot, JPA with Hibernate.
 
 JPA allows writing 'conversion' code so that an entity attribute (table column) can be converted from one type to another and back. Though this is not a latest feature of JPA nor a bleeding edge topic, I am sharing how I wrote a generic converter for encryption and decryption of a string type table column.
