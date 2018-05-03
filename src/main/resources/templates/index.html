@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" lang="en">
+ -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Generic JPA converter for encryption decryption</title>
+</head>
+<body>
+	<h2>Generic JPA converter for encryption decryption</h2>
+	<h4>
+		Refer my blog <a href="https://sunitkatkar.blogspot.com/2018/04/spring-boot-2-generic-jpa-converter-to.html"
+			target="_blank">here</a> for details
+	</h4>
+	<h3>List of current employees</h3>
+	<br />
+	<table border="1" cellpadding="2" cellspacing="2">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Sensitive Data</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="emp: ${employees}">
+				<td th:text="${emp.firstName}"></td>
+				<td th:text="${emp.lastName}"></td>
+				<td th:text="${emp.sensitiveData}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<hr />
+	<h3>Create an employee</h3>
+	<form name="employee" id="employee" th:object="${employee}" th:action="@{/create}" method="post">
+		<table border="1" cellpadding="4" cellspacing="4">
+			<tr>
+				<td>First name:</td>
+				<td><input type="text" th:field="*{firstName}"></td>
+			</tr>
+			<tr>
+				<td>Last name:</td>
+				<td><input type="text" th:field="*{lastName}"></td>
+			</tr>
+			<tr>
+				<td>Sensitive Data:</td>
+				<td><input type="text" th:field="*{sensitiveData}"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right"><button type="submit">Create</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
